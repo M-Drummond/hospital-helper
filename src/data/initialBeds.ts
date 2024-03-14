@@ -1,3 +1,5 @@
+import type Bed from '../types/Bed.ts'
+
 export const initialBeds = [
     { id: 1, patient: null },
     { id: 2, patient: null },
