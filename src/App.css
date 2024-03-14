@@ -12,3 +12,12 @@ button, input, select {
     margin-top: theme('spacing.2');
     margin-bottom: theme('spacing.2');
 }
+
+h2 {
+    font-size: 1rem;
+    margin-bottom: theme('spacing.4');
+}
+
+span.name {
+    text-decoration: underline;
+}

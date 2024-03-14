@@ -4,6 +4,7 @@ import type { Note } from "../types/Note";
 const Notes = ({ bed, patient, patients, notes, onRemoveNote, onAddNote }) => {
 
   const [patientNotes, setPatientNotes] = useState(patient.notes); // State for patient notes
+1
 
   const handleAddNote = () => {
     const newNote = prompt("Enter new note:");
@@ -23,13 +24,22 @@ const Notes = ({ bed, patient, patients, notes, onRemoveNote, onAddNote }) => {
   };
 
   return (
+
+    
     <>
+      
       {patient.notes ? (
-        <div className="notes w-full">
-          <h3>Notes:</h3>
-          <ul class="border-t pt-2 mt-2 border-solid border-current">
+        
+        <div className="notes w-full ">
+          
+          <>
+          {patientNotes.length >= 1 ? (
+            <h3>Notes:</h3>
+          ) : null }
+          </>
+          <ul class=" px-2 pt-2 mt-2 ">
             {patientNotes.map((note : Note, index) => (
-              <li className="block w-full mb-4" key={index}>
+              <li className="block w-full mb-4 border-t border-solid border-current  pt-2 " key={index}>
                 <div>
                     {note.content}
                 </div>

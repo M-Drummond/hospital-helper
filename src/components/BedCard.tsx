@@ -3,9 +3,8 @@ import { initialPatients } from "../data/initialPatients.ts";
 
 import Notes from '../components/Notes.tsx'
 
-const BedCard = ({ bed , assignPatient, removePatient }) => {
-  const [patients] = useState(initialPatients); // State should be declared inside the component
-  
+const BedCard = ({ bed , assignPatient, removePatient , patients  }) => {
+  // const [patients] = useState(initialPatients); // State should be declared inside the component
 
   return (
     <div className="border border-current p-4 flex flex-col items-stretch justify-center">
@@ -13,7 +12,7 @@ const BedCard = ({ bed , assignPatient, removePatient }) => {
       {bed.patient ? (
         <div>
           <span>
-            Assigned to: {bed.patient.name}{" "}
+            Assigned to: <span className="name">{bed.patient.name}</span>{" "}
             <button
               className="p-2 border-solid border-current border block my-4"
               onClick={() => removePatient(bed)}
