@@ -1,13 +1,21 @@
 import React, { useState } from "react";
 import { initialPatients } from "../data/initialPatients.ts";
 
+import type { Patient } from "../types/Patient.ts";
+
 import Notes from '../components/Notes.tsx'
 
 const BedCard = ({ bed , assignPatient, removePatient , patients  }) => {
   // const [patients] = useState(initialPatients); // State should be declared inside the component
 
   return (
+
+    
+
     <div className="border border-current p-4 flex flex-col items-stretch justify-center">
+
+      {  JSON.stringify.patients  }
+
       Bed {bed.id}:
       {bed.patient ? (
         <div>
@@ -30,7 +38,8 @@ const BedCard = ({ bed , assignPatient, removePatient , patients  }) => {
             onChange={(e) => assignPatient(bed, e.target.value)}
           >
             <option value="">Assign Patient</option>
-            {patients.map((patient) => (
+            
+            {patients?.map((patient) => (
               <option key={patient.id} value={patient.id}>
                 {patient.name}
               </option>

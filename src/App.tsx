@@ -4,7 +4,7 @@ import Header from "./components/Header.tsx"; // Import the Header component
 
 import type Bed from "./types/Bed.ts";
 
-import BedCard from "./components/BedCard.tsx";
+import BedsList from "./components/BedsList.tsx";
 import Patients from "./components/Patients.tsx";
 
 import { initialBeds } from "./data/initialBeds.ts";
@@ -65,17 +65,15 @@ function App() {
 
       <main className="px-4 container mx-auto">
         <h2>Beds:</h2>
-        <div className="grid grid-cols-4 gap-4 mb-8">
-          {beds.map((bed, index) => (
-            <BedCard
-              key={ index }
-              bed={bed}
-              patients={patients}
-              assignPatient={assignPatient}
-              removePatient={removePatient}
-            />
-          ))}
-        </div>
+        
+          <BedsList
+            beds={beds}
+            patients={patients}
+            assignPatient={assignPatient}
+            removePatient={removePatient}
+          />
+        
+
         <Patients
           patients={patients}
           onAdd={handleAddPatient}
