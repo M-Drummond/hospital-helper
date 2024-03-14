@@ -2,8 +2,10 @@ import "./App.css";
 import React, { useState, useEffect } from 'react';
 import Header from "./components/Header.tsx"; // Import the Header component
 
+import type Bed from './types/Bed.ts'
+
 import BedCard from "./components/BedCard.tsx";
-import Patient from "./components/Patient.tsx";
+import Patients from "./components/Patients.tsx";
 
 import { initialBeds } from "./data/initialBeds.ts";
 import { initialPatients } from "./data/initialPatients.ts";
@@ -28,9 +30,9 @@ function App(  ) {
   }, [darkMode]);
 
   const [beds, setBeds] = useState(initialBeds);
-  const [patients] = useState(initialPatients);
+  const [patients, setPatients] = useState(initialPatients); // Initialize patients state
 
-  const assignPatient = (bed, patientId) => {
+  const assignPatient = (bed : Bed , patientId) => {
     const updatedBeds = beds.map((b) =>
       b.id === bed.id ? { ...b, patient: patients.find((p) => p.id === parseInt(patientId)) } : b
     );
@@ -42,6 +44,14 @@ function App(  ) {
       b.id === bed.id ? { ...b, patient: null } : b
     );
     setBeds(updatedBeds);
+  };
+
+  const handleAddPatient = (newPatient) => {
+    setPatients([...patients, newPatient]);
+  };
+
+  const handleRemovePatient = (id) => {
+    setPatients(patients.filter(patient => patient.id !== id));
   };
 
   return (
@@ -67,9 +77,7 @@ function App(  ) {
         ))}
         </div>
         <h2>Patients:</h2>
-        {patients.map((patient) => (
-          <Patient key={patient.id} patient={patient} />
-        ))}
+        <Patients patients={patients} onAdd={handleAddPatient} onRemove={handleRemovePatient} />
       </main>
     </div>
   );

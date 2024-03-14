@@ -3,10 +3,6 @@ import { initialPatients } from "../data/initialPatients.ts";
 
 import Notes from '../components/Notes.tsx'
 
-import type {Bed} from '../types/Bed.ts'
-import type {Patient} from '../types/Patient.ts'
-import {Note} from '../types/Note.ts'
-
 const BedCard = ({ bed , assignPatient, removePatient }) => {
   const [patients] = useState(initialPatients); // State should be declared inside the component
   

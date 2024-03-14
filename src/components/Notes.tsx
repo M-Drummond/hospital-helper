@@ -34,7 +34,7 @@ const Notes = ({ bed, patient, patients, notes, onRemoveNote, onAddNote }) => {
                     {note.content}
                 </div>
                 <button
-                  className="p-2 border-solid border-current border my-2 w-full block"
+                  className=""
                   onClick={() => handleRemoveNote(index)}
                 >
                   Remove
