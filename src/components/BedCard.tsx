@@ -1,14 +1,32 @@
-import React, { Component } from 'react';
-// import type Bed from '../types/Bed'
+import React, { useState } from 'react';
+import { initialPatients } from '../data/initialPatients.ts' 
 
-function BedCard( { bed } ) {
+const BedCard = ({ bed, assignPatient, removePatient }) => {
+  const [patients] = useState(initialPatients); // State should be declared inside the component
+
   return (
-    <div className="border border-current p-4">
-      <div> BED: { bed.id } </div>
-      <div> LOCATION: { bed.location } </div>
-      <div> PATIENT: { bed.patient } </div>
+    <div>
+      Bed {bed.id}:
+      {bed.patient ? (
+        <span>
+          Assigned to: {bed.patient.name}{" "}
+          <button onClick={() => removePatient(bed)}>Remove</button>
+        </span>
+      ) : (
+        <span>
+          Unoccupied{" "}
+          <select onChange={(e) => assignPatient(bed, e.target.value)}>
+            <option value="">Assign Patient</option>
+            {patients.map((patient) => (
+              <option key={patient.id} value={patient.id}>
+                {patient.name}
+              </option>
+            ))}
+          </select>
+        </span>
+      )}
     </div>
   );
-}
+};
 
-export default BedCard; 
+export default BedCard;

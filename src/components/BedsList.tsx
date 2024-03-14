@@ -12,12 +12,8 @@ const BedsList = () => {
   return (
     <div className="container mx-auto">     
 
-      <Controller beds={beds} />
-      <div id="BedsList" className="grid grid-cols-4 gap-4">
-        {beds.map((bed) => (
-          <BedCard bed={bed} />
-        ))}
-      </div>
+      
+      
     </div>
   );
 };
