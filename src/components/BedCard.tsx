@@ -5,7 +5,7 @@ const BedCard = ({ bed, assignPatient, removePatient }) => {
   const [patients] = useState(initialPatients); // State should be declared inside the component
 
   return (
-    <div>
+    <div className="border border-current p-4 flex flex-col items-start justify-center">
       Bed {bed.id}:
       {bed.patient ? (
         <span>

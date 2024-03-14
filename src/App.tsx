@@ -53,8 +53,9 @@ function App(  ) {
     >
       <Header darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
 
-      <main>
+      <main className="px-4 container mx-auto">
         <h2>Beds:</h2>
+        <div className="grid grid-cols-4 gap-4 mb-8">
         {beds.map((bed) => (
           <BedCard
             key={bed.id}
@@ -64,6 +65,7 @@ function App(  ) {
             removePatient={removePatient}
           />
         ))}
+        </div>
         <h2>Patients:</h2>
         {patients.map((patient) => (
           <Patient key={patient.id} patient={patient} />
