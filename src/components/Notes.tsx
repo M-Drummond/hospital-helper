@@ -37,7 +37,7 @@ const Notes = ({ bed, patient, patients, notes, onRemoveNote, onAddNote }) => {
             <h3>Notes:</h3>
           ) : null }
           </>
-          <ul class=" px-2 pt-2 mt-2 ">
+          <ul className=" px-2 pt-2 mt-2 ">
             {patientNotes.map((note : Note, index) => (
               <li className="block w-full mb-4 border-t border-solid border-current  pt-2 " key={index}>
                 <div>
