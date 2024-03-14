@@ -5,6 +5,8 @@ import type { Patient } from "../types/Patient.ts";
 const BedsList = ( { beds , assignPatient, removePatient , patients  } ) => {
   console.log( patients )
   return (
+    <div>
+    <h2>Beds:</h2>
     <div className="container mx-auto grid grid-cols-4 gap-4 mb-8">     
 
           {beds.map((bed, index) => (
@@ -17,6 +19,7 @@ const BedsList = ( { beds , assignPatient, removePatient , patients  } ) => {
             />
           ))}      
       
+    </div>
     </div>
   );
 };

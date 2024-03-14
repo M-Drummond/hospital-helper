@@ -6,6 +6,7 @@ import type Bed from "./types/Bed.ts";
 
 import BedsList from "./components/BedsList.tsx";
 import Patients from "./components/Patients.tsx";
+import AddBedForm from "./components/AddBedForm.tsx";
 
 import { initialBeds } from "./data/initialBeds.ts";
 import { initialPatients } from "./data/initialPatients.ts";
@@ -54,6 +55,15 @@ function App() {
     setPatients(patients.filter((patient) => patient.id !== id));
   };
 
+  const addBed = (newBedName) => {
+    const newBed = {
+      id: Date.now(), // Generate a unique ID for the new bed
+      name: newBedName,
+    };
+    setBeds([...beds, newBed]);
+  };
+
+
   return (
     <div
       id="AppFrame"
@@ -63,16 +73,15 @@ function App() {
     >
       <Header darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
 
-      <main className="px-4 container mx-auto">
-        <h2>Beds:</h2>
-        
+      <main className="px-4 container mx-auto">       
           <BedsList
             beds={beds}
             patients={patients}
             assignPatient={assignPatient}
             removePatient={removePatient}
           />
-        
+      
+        <AddBedForm onAddBed={addBed} />        
 
         <Patients
           patients={patients}
