@@ -1,6 +1,6 @@
 import type {Patient} from "../types/Patient"
 
-interface Bed  {
+export interface Bed  {
   id: number,
   patient: Patient,
 }
